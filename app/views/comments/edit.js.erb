@@ -1,3 +1,2 @@
-console.log("hi");
 var edit_comment = $("<%= j(render 'comments/form', comment: @comment ) %>");
 $("#<%= dom_id(@comment) %>").replaceWith(edit_comment);
