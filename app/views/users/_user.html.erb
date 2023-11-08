@@ -1,4 +1,4 @@
-<div class="media">
+<div id= "<%= dom_id(user) %>_new_request" class="media">
   <%= image_tag user.avatar_image, class: "mr-3 rounded-circle", width: 128 %>
 
   <div class="media-body">
@@ -48,8 +48,8 @@
 
         <% end %>
       </div>
-
-      <% if policy(@user).update? %>
+      
+      <% if policy(@user).update? %><%# i think this is the button%>
         <div>
           <%=
             link_to "#",
@@ -68,8 +68,7 @@
         </div>
       <% end %>
     </div>
-
-    <div class="row mb-3">
+    <div  class="row mb-3"><%#this is the button%>
       <div class="col">
         <% follow_request = current_user.pending_received_follow_requests.find_by(sender: @user) %>
 
@@ -96,8 +95,7 @@
         <% end %>
       </div>
     </div>
-
-    <div class="row mb-4">
+    <div id="<%= dom_id(@user) %>" class="row mb-4">
       <div class="col">
         <%= render "follow_requests/follow_unfollow", sender: current_user, recipient: @user %>
       </div>
